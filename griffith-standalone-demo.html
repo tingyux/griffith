@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+</head>
+
+<body>
+    <div id="player" style="width: 1000px;"></div>
+    <script src="https://unpkg.com/griffith-standalone@1.14.2/dist/index.umd.min.js"></script>
+    
+    <script>
+    const target = document.getElementById('player')
+    const sources = {
+        fhd: {
+            play_url: "http://localhost/1080.mp4",
+        },
+        hd: {
+            play_url: "http://localhost/720.mp4",
+        },
+        sd: {
+            play_url: "http://localhost/480.mp4",
+        },
+        ld: {
+            play_url: "http://localhost/360.mp4",
+        },
+    };
+
+    // 创建播放器
+    const player = Griffith.createPlayer(target)
+    // 载入视频
+    player.render({ sources , cover: "http://localhost/1080.jpg",locale: "zh-Hans",useMSE:"true",defaultQuality:"hd",standalone:"true", });
+    //相关字段参数参考README.md ### `props`，这里做简单说明；
+    //cover 视频封面图片 URL，相当于video标签中的poster；
+    //locale 默认为"en"，详情请查看index.umd.min.js；
+    //useMSE 好像并不起作用；
+    //defaultQuality 默认分辨率
+    //standalone standalone开启，则支持快捷键，包括音量加减，快进快退等功能，详情查看说明文档
+    //
+
+    </script>
+</body>
+
+</html>
